@@ -57,4 +57,31 @@ HED 参考仓库：https://github.com/sunhuaibo/HLA-HED
 
 ---
 
-需要我列出该换算比例出自哪篇具体文献的段落或补充更多例子吗？
+## 20250613
+
+仔细检查了文献的脚本，文献的脚本的计算方法如下，和之前的代码最大的不同是它除以了序列的长度:
+
+```python
+def calculate_distange(hla1: str, hla2: str, sequences: dict, distance: dict) -> float:
+    seq_hla1 = sequences.get(hla1, False)
+    seq_hla2 = sequences.get(hla2, False)
+    if not seq_hla1 or not seq_hla2:
+        return("NA")
+    else:
+        seq_len = len(seq_hla1)
+        dis = 0
+        for i in range(seq_len):
+            aa1 = seq_hla1[i]
+            aa2 = seq_hla2[i]
+            dis += distance[aa1][aa2]
+        dis = dis / seq_len
+        return dis
+```
+
+这也是我之前算的结果偏大的原因，修正之后我们现在可以通过[compute_HED.py](./compute_HED.py)进行计算，相关计算结果如下：
+
+![alt text](image-2.png)
+![alt text](image-4.png)
+
+文献的结果如下所示
+![alt text](image-5.png)

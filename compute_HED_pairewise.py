@@ -40,10 +40,16 @@ GRANTHAM = {
 def grantham_distance(a1, a2):
     return 0 if a1 == a2 else GRANTHAM.get((a1, a2), 0)
 
+# def calculate_hed(s1, s2):
+#     if len(s1) != len(s2):
+#         raise ValueError(f"Length mismatch: {len(s1)} vs {len(s2)}")
+#     return sum(grantham_distance(a, b) for a, b in zip(s1, s2)) / 2.2
+
 def calculate_hed(s1, s2):
     if len(s1) != len(s2):
         raise ValueError(f"Length mismatch: {len(s1)} vs {len(s2)}")
-    return sum(grantham_distance(a, b) for a, b in zip(s1, s2)) / 2.2
+    total = sum(grantham_distance(a, b) for a, b in zip(s1, s2))
+    return total / len(s1)  # 注意这里是除以长度，不是 2.2
 
 # ------------------ 序列读取函数 ------------------
 def load_allele_sequences(fasta_path):
