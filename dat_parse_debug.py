@@ -32,10 +32,10 @@ def parse_hla_dat_4res(dat_path, top=None):
         # DE 行抓 allele name 和 class
         allele_full = cls = None
         for line in lines:
-            if line.startswith("DE") and "Class I" in line:
-                cls = "I"
-            elif line.startswith("DE") and "Class II" in line:
+            if line.startswith("DE") and "Class II" in line:
                 cls = "II"
+            elif line.startswith("DE") and "Class I" in line:
+                cls = "I"
             if line.startswith("DE") and "HLA-" in line:
                 match = re.search(r"HLA-([\w\*:\-]+)", line)
                 if match:

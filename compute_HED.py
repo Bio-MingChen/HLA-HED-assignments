@@ -61,6 +61,7 @@ def summarize_hed_per_locus_with_calculation(directory="data", fasta_file="data/
     import os
 
     target_genes = ["A", "B", "C", "DRB1", "DQB1", "DQA1", "DPB1", "DPA1", "DRB3", "DRB4", "DRB5",]
+    # target_genes = [ "DPA1"]
     allele_seqs = load_allele_sequences(fasta_file)
 
     print("\n📊 Summary of HED per HLA locus:")

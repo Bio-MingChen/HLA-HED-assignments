@@ -81,7 +81,6 @@ def calculate_distange(hla1: str, hla2: str, sequences: dict, distance: dict) ->
 这也是我之前算的结果偏大的原因，修正之后我们现在可以通过[compute_HED.py](./compute_HED.py)进行计算，相关计算结果如下：
 
 ![alt text](image-2.png)
-![alt text](image-4.png)
-
+![alt text](image-6.png)
 文献的结果如下所示
 ![alt text](image-5.png)
